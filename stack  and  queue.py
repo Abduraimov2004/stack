@@ -2,54 +2,54 @@ import random
 
 
 class Stack:
-    def __init__(self):
+    def __init__(self) -> None:
         self.items = []
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         return len(self.items) == 0
 
-    def push(self, item):
+    def push(self, item) -> None:
         self.items.append(item)
 
-    def pop(self):
+    def pop(self) -> None:
         if not self.is_empty():
             return self.items.pop()
         else:
             print("Error: Stack is empty")
 
-    def peek(self):
+    def peek(self) -> None:
         if not self.is_empty():
             return self.items[-1]
         else:
             print("Error: Stack is empty")
 
-    def size(self):
+    def size(self) -> int:
         return len(self.items)
 
 
 class Queue:
-    def __init__(self):
+    def __init__(self) -> None:
         self.items = []
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         return len(self.items) == 0
 
-    def enqueue(self, item):
+    def enqueue(self, item) -> None:
         self.items.append(item)
 
-    def dequeue(self):
+    def dequeue(self) -> None:
         if not self.is_empty():
             return self.items.pop()
         else:
             print("Error: Queue is empty")
 
-    def peek(self):
+    def peek(self) -> None:
         if not self.is_empty():
             return self.items[0]
         else:
             print("Error: Queue is empty")
 
-    def size(self):
+    def size(self) -> int:
         return len(self.items)
 
 
@@ -57,21 +57,21 @@ stack = Stack()
 queue = Queue()
 
 
-def run1():
-    tanla = input("""
+def run1() -> None:
+    tanla: str = input("""
     1.> Queue
     2.> Stack
             >>> : """)
     if tanla == "1":
-        tanla1 = input("""
+        tanla1: str = input("""
         1.> Malumotlarni qolda kiritish
         2.> Tayyor malumotdan foydalanish
                 >>> : """)
         if tanla1 == "1":
-            push = int(input("Nechta malumot qoshmoqchisiz : "))
+            push: int = int(input("Nechta malumot qoshmoqchisiz : "))
             for i in range(1, push + 1):
                 print(i)
-                malumot = input(">>> :")
+                malumot: str = input(">>> :")
                 try:
                     queue.enqueue(int(malumot))
                 except ValueError:
@@ -86,10 +86,10 @@ def run1():
                 3.> Biror bir malumotni ko'rish
                         >>> : """)
                 if tanlang == "1":
-                    push = int(input("Nechta malumot qoshmoqchisiz : "))
+                    push: int = int(input("Nechta malumot qoshmoqchisiz : "))
                     for i in range(1, push + 1):
                         print(i)
-                        malumot = input(">>> :")
+                        malumot: str = input(">>> :")
                         try:
                             queue.enqueue(int(malumot))
                         except ValueError:
@@ -100,7 +100,7 @@ def run1():
 
                 elif tanlang == "2":
                     print(queue.items)
-                    net = input("""
+                    net: str = input("""
                     1.> ohiridan 1 ta elementni ochirish
                     2.> Ixtiyoriy elementni ochirish
                                 >>> : """)
@@ -111,7 +111,7 @@ def run1():
                         kiriting = input(">>> : ")
                         try:
                             for i in queue.items:
-                                ixtiyoriy1 = int(kiriting)
+                                ixtiyoriy1: int = int(kiriting)
                                 if i == ixtiyoriy1:
                                     queue.items.remove(ixtiyoriy1)
                                     print(queue.items)
@@ -129,7 +129,7 @@ def run1():
                                 print("Topilmadi")
                 elif tanlang == "3":
                     print(queue.items)
-                    kirit = input("""
+                    kirit: str = input("""
                     1.> Ohiridagi elementni ko'rish
                     2.> Ixtiyoriy elementni ko'rish
                                 >>> : """)
@@ -137,10 +137,10 @@ def run1():
                         queue.peek()
                         print(queue.items)
                     elif kirit == "2":
-                        ixtiyoriy = input(">>> :")
+                        ixtiyoriy: str = input(">>> :")
                         try:
                             for i in queue.items:
-                                ixtiyoriy1 = int(ixtiyoriy)
+                                ixtiyoriy1: int = int(ixtiyoriy)
                                 if i == ixtiyoriy1:
                                     print(i)
                                     print(queue.items)
@@ -157,29 +157,27 @@ def run1():
                             else:
 
                                 print("Topilmadi")
-                tanla3 = input("""Davom etirmoqchimisiz
+                tanla3: str = input("""Davom etirmoqchimisiz
                 1.> Ha
                 2.> Yoq
                         >>> : """)
             return
-
-
 
         if tanla1 == "2":
             queue.items.extend(["assalom", "hello", 20, 66, True])
             print(queue.items)
             tanla3 = "1"
             while tanla3 == "1":
-                tanlang = input("""
+                tanlang: str = input("""
                 1.> Yana malumot qoshish
                 2.> Biror bir malumotni ochirib tashlash
                 3.> Biror bir malumotni ko'rish
                         >>> : """)
                 if tanlang == "1":
-                    push = int(input("Nechta malumot qoshmoqchisiz : "))
+                    push: int = int(input("Nechta malumot qoshmoqchisiz : "))
                     for i in range(1, push + 1):
                         print(i)
-                        malumot = input(">>> :")
+                        malumot: str = input(">>> :")
                         try:
                             queue.enqueue(int(malumot))
                         except ValueError:
@@ -187,7 +185,7 @@ def run1():
                     print("Malumotlar qoshildi")
                 elif tanlang == "2":
                     print(queue.items)
-                    net = input("""
+                    net: str = input("""
                     1.> ohiridan 1 ta elementni ochirish
                     2.> Ixtiyoriy elementni ochirish
                                 >>> : """)
@@ -195,10 +193,10 @@ def run1():
                         queue.dequeue()
                         print(queue.items)
                     elif net == "2":
-                        kiriting = input(">>> : ")
+                        kiriting: str = input(">>> : ")
                         try:
                             for i in queue.items:
-                                ixtiyoriy1 = int(kiriting)
+                                ixtiyoriy1: int = int(kiriting)
                                 if i == ixtiyoriy1:
                                     queue.items.remove(ixtiyoriy1)
                                     print(queue.items)
@@ -216,7 +214,7 @@ def run1():
                                 print("Topilmadi")
                 elif tanlang == "3":
                     print(queue.items)
-                    kirit = input("""
+                    kirit: str = input("""
                     1.> Ohiridagi elementni ko'rish
                     2.> Ixtiyoriy elementni ko'rish
                                 >>> : """)
@@ -224,10 +222,10 @@ def run1():
                         queue.peek()
                         print(queue.items)
                     elif kirit == "2":
-                        ixtiyoriy = input(">>> :")
+                        ixtiyoriy: str = input(">>> :")
                         try:
                             for i in queue.items:
-                                ixtiyoriy1 = int(ixtiyoriy)
+                                ixtiyoriy1: int = int(ixtiyoriy)
                                 if i == ixtiyoriy1:
                                     print(i)
                                     print(queue.items)
@@ -243,21 +241,21 @@ def run1():
                                     break
                             else:
                                 print("Topilmadi")
-                tanla3 = input("""Davom etirmoqchimisiz
+                tanla3: str = input("""Davom etirmoqchimisiz
                 1.> Ha
                 2.> Yoq
                         >>> : """)
             return
     elif tanla == "2":
-        tanla2 = input("""
+        tanla2: str = input("""
         1.> Malumotlarni qolda kiritish
         2.> Tayyor malumotdan foydalanish
                 >>> : """)
         if tanla2 == "1":
-            push = int(input("Nechta malumot qoshmoqchisiz : "))
+            push: int = int(input("Nechta malumot qoshmoqchisiz : "))
             for i in range(1, push + 1):
                 print(i)
-                malumot = input(">>> :")
+                malumot: str = input(">>> :")
                 try:
                     stack.push(int(malumot))
                 except ValueError:
@@ -265,16 +263,16 @@ def run1():
             print("Malumotlar qoshildi")
             tanla3 = "1"
             while tanla3 == "1":
-                tanlang = input("""
+                tanlang: str = input("""
                 1.> Yana malumot qoshish
                 2.> Biror bir malumotni ochirib tashlash
                 3.> Biror bir malumotni ko'rish
                         >>> : """)
                 if tanlang == "1":
-                    push = int(input("Nechta malumot qoshmoqchisiz : "))
+                    push: int = int(input("Nechta malumot qoshmoqchisiz : "))
                     for i in range(1, push + 1):
                         print(i)
-                        malumot = input(">>> :")
+                        malumot: str = input(">>> :")
                         try:
                             stack.push(int(malumot))
                         except ValueError:
@@ -282,7 +280,7 @@ def run1():
                     print("Malumotlar qoshildi")
                 elif tanlang == "2":
                     print(stack.items)
-                    net = input("""
+                    net: str = input("""
                     1.> ohiridan 1 ta elementni ochirish
                     2.> Ixtiyoriy elementni ochirish
                                 >>> : """)
@@ -290,10 +288,10 @@ def run1():
                         stack.pop()
                         print(stack.items)
                     elif net == "2":
-                        kiriting = input(">>> : ")
+                        kiriting: str = input(">>> : ")
                         try:
                             for i in stack.items:
-                                ixtiyoriy1 = int(kiriting)
+                                ixtiyoriy1: int = int(kiriting)
                                 if i == ixtiyoriy1:
                                     stack.items.remove(ixtiyoriy1)
                                     print(stack.items)
@@ -311,7 +309,7 @@ def run1():
                                 print("Topilmadi")
                 elif tanlang == "3":
                     print(stack.items)
-                    kirit = input("""
+                    kirit: str = input("""
                     1.> Ohiridagi elementni ko'rish
                     2.> Ixtiyoriy elementni ko'rish
                                 >>> : """)
@@ -319,10 +317,10 @@ def run1():
                         stack.peek()
                         print(stack.items)
                     elif kirit == "2":
-                        ixtiyoriy = input(">>> :")
+                        ixtiyoriy: str = input(">>> :")
                         try:
                             for i in stack.items:
-                                ixtiyoriy1 = int(ixtiyoriy)
+                                ixtiyoriy1: int = int(ixtiyoriy)
                                 if i == ixtiyoriy1:
                                     print(i)
                                     print(stack.items)
@@ -338,7 +336,7 @@ def run1():
                                     break
                             else:
                                 print("Topilmadi")
-                tanla3 = input("""Davom etirmoqchimisiz
+                tanla3: str = input("""Davom etirmoqchimisiz
                 1.> Ha
                 2.> Yoq
                         >>> : """)
@@ -350,16 +348,16 @@ def run1():
             tanla3 = "1"
 
             while tanla3 == "1":
-                tanlang = input("""
+                tanlang: str = input("""
                 1.> Yana malumot qoshish
                 2.> Biror bir malumotni ochirib tashlash
                 3.> Biror bir malumotni ko'rish
                         >>> : """)
                 if tanlang == "1":
-                    push = int(input("Nechta malumot qoshmoqchisiz : "))
+                    push: int = int(input("Nechta malumot qoshmoqchisiz : "))
                     for i in range(1, push + 1):
                         print(i)
-                        malumot = input(">>> :")
+                        malumot: str = input(">>> :")
                         try:
                             stack.push(int(malumot))
                         except ValueError:
@@ -367,7 +365,7 @@ def run1():
                     print("Malumotlar qoshildi")
                 elif tanlang == "2":
                     print(stack.items)
-                    net = input("""
+                    net: str = input("""
                     1.> ohiridan 1 ta elementni ochirish
                     2.> Ixtiyoriy elementni ochirish
                                 >>> : """)
@@ -375,10 +373,10 @@ def run1():
                         stack.pop()
                         print(stack.items)
                     elif net == "2":
-                        kiriting = input(">>> : ")
+                        kiriting: str = input(">>> : ")
                         try:
                             for i in stack.items:
-                                ixtiyoriy1 = int(kiriting)
+                                ixtiyoriy1: int = int(kiriting)
                                 if i == ixtiyoriy1:
                                     stack.items.remove(ixtiyoriy1)
                                     print(stack.items)
@@ -396,7 +394,7 @@ def run1():
                                 print("Topilmadi")
                 elif tanlang == "3":
                     print(stack.items)
-                    kirit = input("""
+                    kirit: str = input("""
                     1.> Ohiridagi elementni ko'rish
                     2.> Ixtiyoriy elementni ko'rish
                                 >>> : """)
@@ -404,7 +402,7 @@ def run1():
                         stack.peek()
                         print(stack.items)
                     elif kirit == "2":
-                        ixtiyoriy = input(">>> :")
+                        ixtiyoriy: str = input(">>> :")
                         try:
                             for i in stack.items:
                                 ixtiyoriy1 = int(ixtiyoriy)
@@ -428,7 +426,6 @@ def run1():
                 2.> Yoq
                         >>> : """)
             return
-
 
 
 def binar_search() -> None:
@@ -457,7 +454,7 @@ def binar_search() -> None:
 
 def linear_search() -> None:
     print("[1 ___ 30]")
-    target = int(input(" son =>"))
+    target: int = int(input(" son =>"))
     n = 0
     while n < 31:
         n += 1
@@ -470,44 +467,41 @@ def linear_search() -> None:
         print("Qiymat topilmadi")
 
 
-
-
-
 def run() -> None:
-    next: str = input("""
+    nex: str = input("""
     1.> Binary search
     2.> Linear search
             >>>> """)
 
-    if next == '1':
+    if nex == '1':
         return binar_search()
-    elif next == '2':
+    elif nex == '2':
         return linear_search()
 
 
-
 class Node:
-    def __init__(self, data):
+    def __init__(self, data) -> None:
         self.data = data
         self.next = None
 
 
 class LinkedList:
-    def __init__(self):
+    def __init__(self) -> None:
         self.head = None
 
-    def printList(self):
+    def printList(self) -> None:
         temp = self.head
         while temp:
             print(temp.data)
             temp = temp.next
 
-    def push(self, new_data):
+    def push(self, new_data) -> None:
         new_node = Node(new_data)
         new_node.next = self.head
         self.head = new_node
 
-    def insert(self, prev_node, new_data):
+    @staticmethod
+    def insert(prev_node, new_data) -> None:
         if prev_node is None:
             print("Error")
             return
@@ -515,7 +509,7 @@ class LinkedList:
         new_node.next = prev_node.next
         prev_node.next = new_node
 
-    def append(self, new_data):
+    def append(self, new_data) -> None:
         new_node = Node(new_data)
         if self.head is None:
             self.head = new_node
@@ -525,7 +519,7 @@ class LinkedList:
             last = last.next
         last.next = new_node
 
-    def check(self, data):
+    def check(self, data) -> None:
         if self.head is None:
             return None
         current = self.head
@@ -535,18 +529,18 @@ class LinkedList:
             current = current.next
         return None
 
-    def deleted(self, key):
+    def deleted(self, key) -> None:
+        global prev
         temp = self.head
         if temp and temp.data == key:
             self.head = temp.next
-            temp = None
             return
         while temp:
             if temp.data == key:
                 break
             prev = temp
             temp = temp.next
-        if temp == None:
+        if temp is None:
             return
         prev.next = temp.next
         temp = None
@@ -566,16 +560,14 @@ def tayyor() -> None:
     l_list.printList()
 
 
-
-
-def qolda():
+def qolda() -> None:
     l_list = LinkedList()
     tugun: int = int(input("Nechta tugun yaratmoqchisiz: "))
     if tugun > 0:
         tugun_boshi: int = int(input("Tugundi boshi >>> : "))
         list_qolda.insert(0, tugun_boshi)
         while tugun > 1:
-            davomi = int(input("Tugundi davomi > :"))
+            davomi: int = int(input("Tugundi davomi > :"))
             list_qolda.append(davomi)
             tugun -= 1
     l_list.head = Node(list_qolda[0])
@@ -584,23 +576,22 @@ def qolda():
     l_list.printList()
 
 
-
 def q_amallar():
     l_list = LinkedList()
     if len(list_qolda) > 0:
-        tanlang = input("""
+        tanlang: str = input("""
         1.> Push
         2.> Insert
         3.> Append
                 >>> : """)
         if tanlang == "1":
-            tugun1 = int(input("Tugundi boshini ozgartrish  >>> : "))
+            tugun1: int = int(input("Tugundi boshini ozgartrish  >>> : "))
             list_qolda.insert(0, tugun1)
 
             for j in list_qolda:
                 l_list.append(j)
             l_list.printList()
-            tanla = input("""Davom etirmoqchimisiz
+            tanla: str = input("""Davom etirmoqchimisiz
             1.> Ha
             2.> Yoq
                     >>> : """)
@@ -609,9 +600,9 @@ def q_amallar():
             else:
                 return
         elif tanlang == "2":
-            data = int(input("Tugunni kiriting: "))
+            data: int = int(input("Tugunni kiriting: "))
             l_list.printList()
-            prev_data = int(input("Qaysi tugundan kegin qoshmoqchisiz: "))
+            prev_data: int = int(input("Qaysi tugundan kegin qoshmoqchisiz: "))
             list_qolda.insert(prev_data, data)
             for j in list_qolda:
                 l_list.append(j)
@@ -621,7 +612,7 @@ def q_amallar():
             else:
                 l_list.insert(prev_node, data)
             l_list.printList()
-            tanla = input("""Davom etirmoqchimisiz
+            tanla: str = input("""Davom etirmoqchimisiz
             1.> Ha
             2.> Yoq
                     >>> : """)
@@ -630,12 +621,12 @@ def q_amallar():
             else:
                 return
         elif tanlang == "3":
-            data = int(input("Tugunni kiriting: "))
+            data: int = int(input("Tugunni kiriting: "))
             list_qolda.append(data)
             for j in list_qolda:
                 l_list.append(j)
             l_list.printList()
-            tanla = input("""Davom etirmoqchimisiz
+            tanla: str = input("""Davom etirmoqchimisiz
             1.> Ha
             2.> Yoq
                     >>> : """)
@@ -647,7 +638,7 @@ def q_amallar():
             print("Noto'g'ri tanlov")
     else:
         print("Hozirda Data bo'sh uni toldiring")
-        tanla = input("""
+        tanla: str = input("""
         1.> Qolda qoshish 
         2.> Tayyor data 
          3.> Back
@@ -668,8 +659,8 @@ def q_amallar():
             return
 
 
-def run2():
-    tugadi = input("""
+def run2() -> None:
+    tugadi: str = input("""
     1.> Search
     2.> Linked list
     3.> Stack/Queue
@@ -683,4 +674,3 @@ def run2():
 
 
 run2()
-
